@@ -1,10 +1,15 @@
 // server.js
 
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const jwt = require('express-jwt');
 const jwtAuthz = require('express-jwt-authz');
 const jwksRsa = require('jwks-rsa');
+
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 
 // Authorization middleware. When used, the
 // Access Token must exist and be verified against
